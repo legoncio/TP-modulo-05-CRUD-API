@@ -16,3 +16,7 @@ Inicia la aplicación en la URL http://localhost:8000.
 v1.0:
 
 Entrega 1. API para modelo de "posts", sin autenticación.
+
+v2.0:
+
+Entrega 2: Endpoints para creación de usuarios e inicio de sesión. Autenticación.
