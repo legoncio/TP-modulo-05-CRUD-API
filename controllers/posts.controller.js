@@ -1,3 +1,4 @@
+const createError = require('http-errors')
 const Post = require('../models/post.model')
 
 module.exports.list = async (req,res,next) => {
@@ -7,10 +8,10 @@ module.exports.list = async (req,res,next) => {
         if (result) {
             res.status(200).json(result)
         }else{
-            res.status(404).json({"message": "no posts found"})
+            next(createError(404, 'resource not found'))
         }
-    }catch{
-        next()
+    }catch(err){
+        next(err)
     }
 }
 
@@ -18,9 +19,8 @@ module.exports.detail = async (req,res,next) => {
     try{
         const result  = await Post.findById(req.params.id)
         res.status(200).json(result)
-    }catch{
-        res.status(404).json({"message": "post not found"})
-        next()
+    }catch(err){
+        next(err)
     }
 }
 
@@ -29,9 +29,8 @@ module.exports.create = async (req,res,next) => {
         const data = { title, text, author } = req.body
         const result = await Post.create(data)
         res.status(201).json(result)
-    }catch{
-        res.status(400).json({"code": "bad_request"})
-        next()
+    }catch(err){
+        next(err)
     }
 }
 
@@ -42,10 +41,10 @@ module.exports.update = async (req,res,next) => {
         if(result){
             res.status(200).json(result)
         }else{
-            res.status(404).json({"message": "post not found"})
+            next(createError(404, 'resource not found'))
         }
-    }catch{
-        next()
+    }catch(err){
+        next(err)
     }
     
 }
@@ -56,9 +55,9 @@ module.exports.delete = async (req,res,next) => {
         if(result){
             res.status(200).json(result)
         }else{
-            res.status(404).json({"message": "post not found"})
+            next(createError(404, 'resource not found'))
         }
-    }catch{
-        next()
+    }catch(err){
+        next(err)
     }
 }
