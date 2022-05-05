@@ -10,7 +10,7 @@ module.exports.checkAuth = async (req, res, next) => {
         try{
             const decoded = jwt.verify(token, process.env.SECRET)
             const user = await User.findById(decoded.sub).exec()
-            if(user){
+            if(user && user.active){
                 req.user = user
                 next()
             }else{

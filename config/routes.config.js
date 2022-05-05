@@ -7,6 +7,9 @@ const users = require('../controllers/users.controller')
 router.route('/users')
     .post(users.create)
     
+router.route('/users/:id/activate')
+    .get(users.activate)
+
 router.route('/login')
     .post(users.login)
 

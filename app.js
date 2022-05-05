@@ -36,7 +36,7 @@ app.use((error,req,res,next) => {
   })
 })
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 
 app.listen(port, () => {
   console.info(`Application running at port ${port}`)

@@ -20,3 +20,7 @@ Entrega 1. API para modelo de "posts", sin autenticación.
 v2.0:
 
 Entrega 2: Endpoints para creación de usuarios e inicio de sesión. Autenticación.
+
+v3.0:
+
+Entrega 3: Activación de usuario mediante envío de correo con link de activación.
