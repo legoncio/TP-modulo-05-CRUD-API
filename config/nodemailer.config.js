@@ -18,7 +18,7 @@ module.exports.sendActivationEmail = (user) => {
         subject: 'Please activate your account',
         html: `
             <h1>Welcome to the Posts API</h1>
-            <p>Please activate your account by clicking <a href="http://localhost:8000/api/users/${user.id}/activate">here</a></p>`
+            <p>Please activate your account by clicking <a href="${process.env.URL}/api/users/${user.id}/activate">here</a></p>`
     }).then(()=>{
         console.log('email sent')
     }).catch((err) => console.error('error sending email ', err))
